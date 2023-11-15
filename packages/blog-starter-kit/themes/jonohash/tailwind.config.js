@@ -12,7 +12,7 @@ module.exports = {
 				'accent-7': '#333',
 				success: '#0070f3',
 				cyan: '#79FFE1',
-				primary: colors.green,
+				primary: colors[process.env.NEXT_PUBLIC_THEME],				
 			},
 			typography: () => ({
 				DEFAULT: {
