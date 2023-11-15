@@ -34,12 +34,17 @@ NEXT_PUBLIC_BASE_URL=/blog -> remove this line if just installing on root
 ### local machine
 
 * go to an empty folder 
-* clone this repo `git clone https://github.com/joncoded/jonohash.git .`
-* `cd packages/blog-start-kit/themes/jonohash` 
-* copy the above `NEXT_PUBLIC...` environment variables (with modified values) to .env.local on the `../themes/jonohash` folder
-* `npm install pnpm` (if not already)
-* `pnpm install`
-* `pnpm dev`
+* clone this repo 
+  * `git clone https://github.com/joncoded/jonohash.git .`
+* go into that folder and then 
+  * `cd packages/blog-start-kit/themes/jonohash` 
+* on the same folder, copy the above `NEXT_PUBLIC...` environment variables (with modified values) to `.env.local` 
+* if not already 
+  * `npm install pnpm` 
+* then of course
+  * `pnpm install`
+* and finally 
+  * `pnpm dev`
 * go to [http://localhost:3000](http://localhost:3000)
 
 ### re-deployment
