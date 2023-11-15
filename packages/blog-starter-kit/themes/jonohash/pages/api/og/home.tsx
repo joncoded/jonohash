@@ -8,23 +8,23 @@ export const config = {
 };
 
 const fontRegular = fetch(
-	new URL('../../../assets/PlusJakartaSans-Regular.ttf', import.meta.url),
+	new URL('../../../assets/Nunito-Regular.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 const fontMedium = fetch(
-	new URL('../../../assets/PlusJakartaSans-Medium.ttf', import.meta.url),
+	new URL('../../../assets/Nunito-Medium.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 const fontSemiBold = fetch(
-	new URL('../../../assets/PlusJakartaSans-SemiBold.ttf', import.meta.url),
+	new URL('../../../assets/Nunito-SemiBold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
-const fontBold = fetch(new URL('../../../assets/PlusJakartaSans-Bold.ttf', import.meta.url)).then(
+const fontBold = fetch(new URL('../../../assets/Nunito-Bold.ttf', import.meta.url)).then(
 	(res) => res.arrayBuffer(),
 );
 
 const fontExtraBold = fetch(
-	new URL('../../../assets/PlusJakartaSans-ExtraBold.ttf', import.meta.url),
+	new URL('../../../assets/Nunito-ExtraBold.ttf', import.meta.url),
 ).then((res) => res.arrayBuffer());
 
 const kFormatter = (num: number) => {
@@ -64,7 +64,7 @@ export default async function handler(req: NextRequest) {
 		(
 			<div
 				style={{
-					fontFamily: '"Plus Jakarta Sans"',
+					fontFamily: '"Nunito"',
 				}}
 				tw={`relative flex h-full w-full p-8 bg-white`}
 			>
