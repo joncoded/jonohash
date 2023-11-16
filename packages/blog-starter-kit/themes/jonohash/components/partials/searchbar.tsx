@@ -11,7 +11,7 @@ import { DEFAULT_COVER } from '../../utils/const'
 import { useAppContext } from '../utilities/contexts/appContext'
 
 const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT
-const NO_OF_SEARCH_RESULTS = 3
+const NO_OF_SEARCH_RESULTS = 10
 
 type Post = SearchPostsOfPublicationQuery['searchPostsOfPublication']['edges'][0]['node']
 
@@ -41,7 +41,8 @@ export const Search = () => {
 		setQuery(searchInputRef.current?.value || '')
 	}
 
-	const search = async (query: string) => {
+	useEffect(() => {
+		
 		if (timerRef.current) clearTimeout(timerRef.current)
 
 		if (!query) {
@@ -63,12 +64,9 @@ export const Search = () => {
 			const posts = data.searchPostsOfPublication.edges.map((edge) => edge.node)
 			setSearchResults(posts)
 			setIsSearching(false)
-		}, 500)
-	}
+		}, 500)		
 
-	useEffect(() => {
-		search(query)
-	}, [query])
+	}, [publication.id, query])
 
 	const searchResultsList = searchResults.map((post) => {
 		
@@ -110,6 +108,8 @@ export const Search = () => {
 	return (
 
 		<div className="search-bar overflow-y-scroll">
+
+			{/* the search bar itself */}
 			<input
 				type="text"
 				ref={searchInputRef}
@@ -118,8 +118,11 @@ export const Search = () => {
 				placeholder="🔎 search"
 				className="w-full px-6 py-2 dark:bg-zinc-200 text-black"
 			/>
+			
 			{query && (
 				<>
+					
+					{/* the search results loading state */}
 					{isSearching && (
 						<div className="top-100 absolute right-0 z-10 mt-1 flex w-full md:w-1/2 flex-col items-stretch overflow-y-scroll rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl">
 							<div className="flex animate-pulse flex-col gap-1 p-4">
@@ -150,8 +153,10 @@ export const Search = () => {
 							{searchResultsList}
 						</div>
 					)}
+
 				</>
 			)}
+
 		</div>
 	)
 }
