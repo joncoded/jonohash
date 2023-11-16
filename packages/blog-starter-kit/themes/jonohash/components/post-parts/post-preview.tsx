@@ -2,7 +2,6 @@ import { resizeImage } from '@starter-kit/utils/image'
 import Link from 'next/link'
 import { User } from '../../generated/graphql'
 import { DEFAULT_COVER } from '../../utils/const'
-import { CoverImage } from '../partials/cover-image'
 import { DateFormatter } from '../utilities/date-formatter'
 
 type Author = Pick<User, 'name' | 'profilePicture'>
