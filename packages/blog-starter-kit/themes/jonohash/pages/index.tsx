@@ -123,13 +123,15 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 
 				<Header />
 
-				<Container className="flex flex-col items-stretch px-5 py-12">
+				<Container className="flex flex-col items-stretch px-5 py-28 md:py-32">
 
 					<main tabIndex={-1}>
 
+						<h1 className="font-bold text-2xl md:text-5xl">home</h1>
+
 						{/* no posts yet */}
 						{allPosts.length === 0 && (
-							<div className="grid grid-cols-1 py-20 lg:grid-cols-3">
+							<div className="grid grid-cols-1 lg:grid-cols-3 pt-10">
 								<div className="col-span-1 flex flex-col items-center gap-5 text-center text-slate-700 dark:text-neutral-400 lg:col-start-2">								
 									<p className="text-xl font-semibold ">
 										🚧 👷🏻 🚧
@@ -139,7 +141,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 						)}
 
 						{/* posts */}
-						<div className="grid items-start gap-6 xl:grid-cols-2 pt-20">
+						<div className="grid items-start gap-6 xl:grid-cols-2 pt-10">
 							<div className="col-span-1">
 								{firstPost && (
 									<HeroPost
