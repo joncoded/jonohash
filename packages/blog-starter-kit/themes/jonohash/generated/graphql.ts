@@ -1148,8 +1148,13 @@ export type Publication = Node & {
   headerColor?: Maybe<Scalars['String']['output']>;
   /** The ID of the publication. */
   id: Scalars['ID']['output'];
-  /** Summary of the contact information and information related to copyrights, usually used in German-speaking countries. */
+  /**
+   * Summary of the contact information and information related to copyrights, usually used in German-speaking countries.
+   * @deprecated Use `imprintV2` instead. Will be removed after 16/12/2023.
+   */
   imprint?: Maybe<Scalars['String']['output']>;
+  /** Summary of the contact information and information related to copyrights, usually used in German-speaking countries. */
+  imprintV2?: Maybe<Content>;
   /** The integrations connected to the publication. */
   integrations?: Maybe<PublicationIntegrations>;
   /** Returns true if GitHub backup is configured and active and false otherwise. */

@@ -1197,7 +1197,11 @@ type Publication implements Node {
   """
   Summary of the contact information and information related to copyrights, usually used in German-speaking countries.
   """
-  imprint: String
+  imprint: String @deprecated(reason: "Use `imprintV2` instead. Will be removed after 16/12/2023.")
+  """
+  Summary of the contact information and information related to copyrights, usually used in German-speaking countries.
+  """
+  imprintV2: Content
   """The integrations connected to the publication."""
   integrations: PublicationIntegrations
   """
