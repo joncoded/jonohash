@@ -1,6 +1,6 @@
 import * as Popover from '@radix-ui/react-popover';
 import { Button } from './button';
-import { NewsletterPlusSVG } from './icons';
+import { NewsletterPlusSVG } from '../utilities/icons';
 import { SubscribeForm } from './subscribe-form';
 
 export const Subscribe = () => {

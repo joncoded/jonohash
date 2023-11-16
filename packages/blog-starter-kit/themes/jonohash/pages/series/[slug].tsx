@@ -2,13 +2,13 @@ import { resizeImage } from '@starter-kit/utils/image';
 import request from 'graphql-request';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import Head from 'next/head';
-import { Container } from '../../components/container';
-import { AppProvider } from '../../components/contexts/appContext';
-import { CoverImage } from '../../components/cover-image';
-import { Footer } from '../../components/footer';
-import { Header } from '../../components/header';
+import { Container } from '../../components/skeleton/container';
+import { AppProvider } from '../../components/utilities/contexts/appContext';
+import { CoverImage } from '../../components/partials/cover-image';
+import { Footer } from '../../components/skeleton/footer';
+import { Header } from '../../components/skeleton/header';
 import { Layout } from '../../components/layout';
-import { MorePosts } from '../../components/more-posts';
+import { MorePosts } from '../../components/page-parts/more-posts';
 import {
 	PostFragment,
 	PublicationFragment,
@@ -51,7 +51,7 @@ export default function Post({ series, publication, posts }: Props) {
 								dangerouslySetInnerHTML={{ __html: series.description?.html ?? '' }}
 							></div>
 						</div>
-						<div className="relative col-span-full md:col-span-2 lg:col-span-1">
+						<div className="relative col-span-full md:col-span-2 lg:col-span-1 mt-5 md:my-0">
 							<CoverImage
 								title={series.name}
 								src={resizeImage(

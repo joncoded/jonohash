@@ -1,7 +1,7 @@
 import { resizeImage } from '@starter-kit/utils/image';
 import Link from 'next/link';
-import { useAppContext } from './contexts/appContext';
-import { PublicationFragment } from '../generated/graphql';
+import { useAppContext } from '../utilities/contexts/appContext';
+import { PublicationFragment } from '../../generated/graphql';
 
 const getPublicationLogo = (publication: PublicationFragment, isSidebar?: boolean) => {
 	if (isSidebar) {

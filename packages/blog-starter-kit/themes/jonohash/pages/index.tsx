@@ -6,16 +6,16 @@ import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import { useState } from 'react';
 import { Waypoint } from 'react-waypoint';
-import { Button } from '../components/button';
-import { Container } from '../components/container';
-import { AppProvider } from '../components/contexts/appContext';
-import { Footer } from '../components/footer';
-import { Header } from '../components/header';
-import { HeroPost } from '../components/hero-post';
-import { ChevronDownSVG } from '../components/icons';
+import { Button } from '../components/partials/button';
+import { Container } from '../components/skeleton/container';
+import { AppProvider } from '../components/utilities/contexts/appContext';
+import { Footer } from '../components/skeleton/footer';
+import { Header } from '../components/skeleton/header';
+import { HeroPost } from '../components/page-parts/hero-post';
+import { ChevronDownSVG } from '../components/utilities/icons';
 import { Layout } from '../components/layout';
-import { MorePosts } from '../components/more-posts';
-import { SecondaryPost } from '../components/secondary-post';
+import { MorePosts } from '../components/page-parts/more-posts';
+import { SecondaryPost } from '../components/page-parts/secondary-post';
 import {
 	MorePostsByPublicationDocument,
 	MorePostsByPublicationQuery,

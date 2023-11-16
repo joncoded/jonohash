@@ -6,14 +6,14 @@ import dynamic from 'next/dynamic';
 import ErrorPage from 'next/error';
 import Head from 'next/head';
 import Link from 'next/link';
-import { Container } from '../components/container';
-import { AppProvider } from '../components/contexts/appContext';
-import { Footer } from '../components/footer';
-import { Header } from '../components/header';
+import { Container } from '../components/skeleton/container';
+import { AppProvider } from '../components/utilities/contexts/appContext';
+import { Footer } from '../components/skeleton/footer';
+import { Header } from '../components/skeleton/header';
 import { Layout } from '../components/layout';
-import { MarkdownToHtml } from '../components/markdown-to-html';
-import { PostHeader } from '../components/post-header';
-import { PostTOC } from '../components/post-toc';
+import { MarkdownToHtml } from '../components/utilities/markdown-to-html';
+import { PostHeader } from '../components/post-parts/post-header';
+import { PostTOC } from '../components/post-parts/post-toc';
 import {
 	PageByPublicationDocument,
 	PageByPublicationQuery,
@@ -36,9 +36,9 @@ import { loadIframeResizer } from '@starter-kit/utils/renderer/services/embed';
 import { triggerCustomWidgetEmbed } from '@starter-kit/utils/trigger-custom-widget-embed';
 import { useEmbeds } from '@starter-kit/utils/renderer/hooks/useEmbeds';
 
-const Subscribe = dynamic(() => import('../components/subscribe').then((mod) => mod.Subscribe));
+const Subscribe = dynamic(() => import('../components/partials/subscribe').then((mod) => mod.Subscribe));
 const PostComments = dynamic(() =>
-	import('../components/post-comments').then((mod) => mod.PostComments),
+	import('../components/post-parts/post-comments').then((mod) => mod.PostComments),
 );
 
 type Props =

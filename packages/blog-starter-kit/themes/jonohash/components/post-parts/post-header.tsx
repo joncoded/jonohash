@@ -1,8 +1,8 @@
 import { resizeImage } from '@starter-kit/utils/image';
-import { User } from '../generated/graphql';
-import { Avatar } from './avatar';
-import { CoverImage } from './cover-image';
-import { DateFormatter } from './date-formatter';
+import { User } from '../../generated/graphql';
+import { Avatar } from '../partials/avatar';
+import { CoverImage } from '../partials/cover-image';
+import { DateFormatter } from '../utilities/date-formatter';
 import { ReadTimeInMinutes } from './post-read-time-in-minutes';
 import { PostTitle } from './post-title';
 

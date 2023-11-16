@@ -1,15 +1,15 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useState } from 'react';
 import { useTheme } from 'next-themes'
-import { PublicationNavbarItem } from '../generated/graphql';
-import { Button } from './button';
+import { PublicationNavbarItem } from '../../generated/graphql';
+import { Button } from '../partials/button';
 import { Container } from './container';
-import { useAppContext } from './contexts/appContext';
-import { PublicationLogo } from './publication-logo';
+import { useAppContext } from '../utilities/contexts/appContext';
+import { PublicationLogo } from '../partials/publication-logo';
 import PublicationSidebar from './sidebar';
-import HamburgerSVG from './icons/svgs/HamburgerSVG';
-import { Search } from './searchbar';
-import Skip from './skip';
+import HamburgerSVG from '../utilities/icons/svgs/HamburgerSVG';
+import { Search } from '../partials/searchbar';
+import Skip from '../partials/skip';
 
 function hasUrl(
 	navbarItem: PublicationNavbarItem,

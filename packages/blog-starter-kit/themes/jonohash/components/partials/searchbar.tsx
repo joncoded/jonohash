@@ -6,12 +6,12 @@ import {
 	SearchPostsOfPublicationDocument,
 	SearchPostsOfPublicationQuery,
 	SearchPostsOfPublicationQueryVariables,
-} from '../generated/graphql';
-import { DEFAULT_COVER } from '../utils/const';
-import { useAppContext } from './contexts/appContext';
+} from '../../generated/graphql';
+import { DEFAULT_COVER } from '../../utils/const';
+import { useAppContext } from '../utilities/contexts/appContext';
 
 const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT;
-const NO_OF_SEARCH_RESULTS = 5;
+const NO_OF_SEARCH_RESULTS = 3;
 
 type Post = SearchPostsOfPublicationQuery['searchPostsOfPublication']['edges'][0]['node'];
 
@@ -76,7 +76,7 @@ export const Search = () => {
 		
 		const searchImg = resizeImage(
 			post.coverImage?.url, 
-			{ w: 100, h: 100, c: 'thumb', }, 
+			{ w: 50, h: 50, c: 'thumb', }, 
 			DEFAULT_COVER
 		)
 		
@@ -87,7 +87,7 @@ export const Search = () => {
 				className="flex flex-row items-center gap-5 p-5 hover:bg-zinc-100 dark:hover:bg-slate-700"
 			>
 				<div
-					className={`rounded-full min-h-[100px] min-w-[100px] shadow-sm shadow-gray-300 p-5 text-5xl bg-cover bg-center`} 
+					className={`rounded-full h-[50px] w-[50px] shadow-sm shadow-gray-300 p-5 text-5xl bg-cover bg-center`} 
 					aria-label="hidden"
 					style={{
 						backgroundImage: `url(${searchImg})`
@@ -109,19 +109,19 @@ export const Search = () => {
 
 	return (
 
-		<div className="search-bar">
+		<div className="search-bar overflow-y-scroll">
 			<input
 				type="text"
 				ref={searchInputRef}
 				onKeyUp={escapeSearchOnESC}
 				onChange={updateSearchQuery}
 				placeholder="🔎 search"
-				className="w-full rounded-full px-4 py-2 dark:bg-zinc-200 text-black"
+				className="w-full px-6 py-2 dark:bg-zinc-200 text-black"
 			/>
 			{query && (
 				<>
 					{isSearching && (
-						<div className="top-100 absolute right-0 z-10 mt-1 flex w-full md:w-1/2 flex-col items-stretch overflow-hidden rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl">
+						<div className="top-100 absolute right-0 z-10 mt-1 flex w-full md:w-1/2 flex-col items-stretch overflow-y-scroll rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl">
 							<div className="flex animate-pulse flex-col gap-1 p-4">
 								<div className="h-8 w-full rounded-lg bg-slate-100 dark:bg-neutral-800"></div>
 								<div className="h-4 w-full rounded-lg bg-slate-100 dark:bg-neutral-800"></div>
@@ -142,7 +142,7 @@ export const Search = () => {
 
 					{/* the search results we see */}
 					{searchResults.length > 0 && !isSearching && (
-						<div className="top-100 absolute right-5 z-10 mt-1 flex w-3/4 md:w-1/2 flex-col items-stretch overflow-hidden rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl">
+						<div className="top-100 absolute right-5 z-10 mt-1 flex w-3/4 md:w-1/2 flex-col items-stretch rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl overflow-auto">
 							<h3 className="px-4 py-2 font-medium text-slate-500 dark:text-neutral-400">
 								{searchResults.length} {(searchResults.length >= 2 || searchResults.length === 0) ? "results" : "result"}
 							</h3>

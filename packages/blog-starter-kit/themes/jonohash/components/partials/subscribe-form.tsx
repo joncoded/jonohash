@@ -5,8 +5,8 @@ import {
 	SubscribeToNewsletterMutation,
 	SubscribeToNewsletterMutationVariables,
 	SubscribeToNewsletterPayload,
-} from '../generated/graphql';
-import { useAppContext } from './contexts/appContext';
+} from '../../generated/graphql';
+import { useAppContext } from '../utilities/contexts/appContext';
 
 const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT;
 

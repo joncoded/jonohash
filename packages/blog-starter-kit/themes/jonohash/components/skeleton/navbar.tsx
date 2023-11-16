@@ -1,5 +1,5 @@
-import { Search } from './searchbar';
-import { SocialLinks } from './social-links';
+import { Search } from '../partials/searchbar';
+import { SocialLinks } from '../partials/social-links';
 
 export const Navbar = () => {
 	return (

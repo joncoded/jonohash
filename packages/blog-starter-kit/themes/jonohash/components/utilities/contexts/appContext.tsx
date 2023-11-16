@@ -1,5 +1,5 @@
 import React, { createContext, useContext } from 'react';
-import { PostFullFragment, PublicationFragment } from '../../generated/graphql';
+import { PostFullFragment, PublicationFragment } from '../../../generated/graphql';
 
 type AppContext = { publication: PublicationFragment; post: PostFullFragment | null };
 

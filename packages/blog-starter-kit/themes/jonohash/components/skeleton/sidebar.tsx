@@ -2,12 +2,12 @@ import * as DialogPrimitive from '@radix-ui/react-dialog';
 import { useTheme } from 'next-themes'
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { PublicationNavbarItem } from '../generated/graphql';
-import { Button } from './button';
-import { useAppContext } from './contexts/appContext';
-import CloseSVG from './icons/svgs/CloseSVG';
-import { PublicationLogo } from './publication-logo';
-import { SocialLinks } from './social-links';
+import { PublicationNavbarItem } from '../../generated/graphql';
+import { Button } from '../partials/button';
+import { useAppContext } from '../utilities/contexts/appContext';
+import CloseSVG from '../utilities/icons/svgs/CloseSVG';
+import { PublicationLogo } from '../partials/publication-logo';
+import { SocialLinks } from '../partials/social-links';
 
 type Props = {
 	toggleSidebar: () => void;
@@ -47,8 +47,7 @@ function PublicationSidebar(props: Props) {
 					onPointerDownOutside={() => {
 						toggleSidebar();
 					}}
-					className={`${
-						// When the sheet is mounted, we want to slide it in from the left.
+					className={`${						
 						!isMounted ? '-translate-x-96' : 'translate-x-0'
 					} fixed bottom-0 left-0 top-0 z-50 flex w-80 transform flex-col bg-white shadow-2xl duration-300 ease-out dark:border-neutral-800 dark:bg-neutral-950`}
 				>

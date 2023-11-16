@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { Container } from './container';
 // import { useAppContext } from './contexts/appContext';
-import { SocialLinks } from './social-links';
+import { SocialLinks } from '../partials/social-links';
 
 export const Footer = () => {
 	// const { publication } = useAppContext();

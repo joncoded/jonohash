@@ -1,5 +1,5 @@
-import { PostFullFragment } from '../generated/graphql';
-import { useAppContext } from './contexts/appContext';
+import { PostFullFragment } from '../../generated/graphql';
+import { useAppContext } from '../utilities/contexts/appContext';
 
 type TableOfContentsItem = PostFullFragment['features']['tableOfContents']['items'][number];
 

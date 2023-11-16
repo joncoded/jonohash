@@ -1,9 +1,9 @@
 import { markdownToHtml } from '@starter-kit/utils/renderer/markdownToHtml';
-import { Comment } from '../generated/graphql';
-import { Avatar } from './avatar';
-import { Button } from './button';
-import { useAppContext } from './contexts/appContext';
-import { ExternalArrowSVG, HashnodeSVG } from './icons';
+import { Comment } from '../../generated/graphql';
+import { Avatar } from '../partials/avatar';
+import { Button } from '../partials/button';
+import { useAppContext } from '../utilities/contexts/appContext';
+import { ExternalArrowSVG, HashnodeSVG } from '../utilities/icons';
 
 export const PostComments = () => {
 	const { post } = useAppContext();

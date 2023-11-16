@@ -1,8 +1,8 @@
-import { Analytics } from './analytics';
-import { Integrations } from './integrations';
-import { Meta } from './meta';
-import { Scripts } from './scripts';
-import { ThemeProvider } from './dark-mode';
+import { Analytics } from './utilities/analytics';
+import { Integrations } from './utilities/integrations';
+import { Meta } from './skeleton/meta';
+import { Scripts } from './utilities/scripts';
+import { ThemeProvider } from './utilities/modes/dark-mode';
 
 type Props = {
 	children: React.ReactNode;
