@@ -171,8 +171,8 @@ export default function PostOrPage({ publication, post, page }: Props) {
 		<AppProvider publication={publication} post={post}>
 			<Layout>
 				<Header />
-				<Container className="py-10">
-					<article className="flex flex-col items-start gap-10 pt-24">
+				<Container className="">
+					<article className="flex flex-col items-start gap-10 pt-28 md:pt-32">
 						{post ? Post(publication, post) : Page(page)}
 					</article>
 				</Container>

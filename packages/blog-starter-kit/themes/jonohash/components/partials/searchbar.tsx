@@ -69,7 +69,7 @@ export const Search = () => {
 	}, [publication.id, query])
 
 	const searchResultsList = searchResults.map((post) => {
-		
+
 		const postURL = `/${post.slug}`
 		
 		const searchImg = resizeImage(
@@ -77,8 +77,6 @@ export const Search = () => {
 			{ w: 50, h: 50, c: 'thumb', }, 
 			DEFAULT_COVER
 		)
-
-		console.log(post)
 		
 		return (
 			<Link
@@ -97,6 +95,8 @@ export const Search = () => {
 				</div>
 				<div className="flex flex-col gap-1">
 					<strong className="text-base">{post.title}</strong>
+					<strong className="text-base">{post.publishedAt}</strong>
+					<strong className="text-base">{post.subtitle}</strong>
 					<span className="text-slate-600 dark:text-neutral-300">
 						{post.brief.length > 140 ? post.brief.substring(0, 140) + '…' : post.brief}
 					</span>

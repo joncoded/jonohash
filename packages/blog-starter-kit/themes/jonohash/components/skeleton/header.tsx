@@ -1,4 +1,3 @@
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
 import { useState } from 'react'
 import { useTheme } from 'next-themes'
 import { PublicationNavbarItem } from '../../generated/graphql'
@@ -21,8 +20,6 @@ export const Header = () => {
 	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>()
 	const { publication } = useAppContext()
 	const navbarItems = publication.preferences.navbarItems.filter(hasUrl)
-	const visibleItems = navbarItems.slice(0, 2)
-	const hiddenItems = navbarItems.slice(2)
 
 	/* dark mode toggle */
   const { theme, setTheme } = useTheme()
@@ -37,61 +34,6 @@ export const Header = () => {
 		setIsSidebarVisible((prevVisibility) => !prevVisibility)
 	}
 	/* sidebar toggle */
-
-	/* navigtion list */
-	const navList = (
-		<ul className="flex flex-row items-center gap-2 text-white">
-
-			{visibleItems.map((item) => (
-				<li key={item.url}>
-					<a
-						href={item.url}
-						target="_blank"
-						rel="noopener noreferrer"
-						className="transition-200 block max-w-[200px] truncate text-ellipsis whitespace-nowrap rounded-full p-2 transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
-					>
-						{item.label}
-					</a>
-				</li>
-			))}
-
-			{hiddenItems.length > 0 && (
-				<li>
-
-					<DropdownMenu.Root>
-						<DropdownMenu.Trigger asChild>
-							<button className="transition-200 block rounded-full p-2 transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white">
-								more
-							</button>
-						</DropdownMenu.Trigger>
-
-						<DropdownMenu.Portal>
-							<DropdownMenu.Content
-								className="w-48 rounded border border-gray-300 bg-white text-neutral-950 shadow-md dark:border-neutral-800 dark:bg-neutral-900 dark:text-white"
-								align="end"
-								sideOffset={5}
-							>
-								{hiddenItems.map((item) => (
-									<DropdownMenu.Item asChild key={item.url}>
-										<a
-											href={item.url}
-											target="_blank"
-											rel="noopener noreferrer"
-											className="transition-200 block truncate p-2 transition-colors hover:bg-slate-100 hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white"
-										>
-											{item.label}
-										</a>
-									</DropdownMenu.Item>
-								))}
-							</DropdownMenu.Content>
-						</DropdownMenu.Portal>
-					</DropdownMenu.Root>
-
-				</li>
-			)}
-		</ul>
-	)
-	/* navigation list */
 
 	return (
 		<header className="fixed top-0 z-40 w-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-5">
@@ -122,11 +64,8 @@ export const Header = () => {
 							<PublicationSidebar navbarItems={navbarItems} toggleSidebar={toggleSidebar} />
 						)}
 					</div>
-					<div>
-						{navList}
-					</div>
 				</div>
-				<div>
+				<div className="w-min-32">
 					<Search />
 				</div>
 			</Container>

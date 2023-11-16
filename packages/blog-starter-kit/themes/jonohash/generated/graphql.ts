@@ -2366,7 +2366,7 @@ export type MorePostsByPublicationQueryVariables = Exact<{
 }>;
 
 
-export type MorePostsByPublicationQuery = { __typename?: 'Query', publication?: { __typename?: 'Publication', posts: { __typename?: 'PublicationPostConnection', edges: Array<{ __typename?: 'PostEdge', node: { __typename?: 'Post', id: string, title: string, url: string, publishedAt: string, slug: string, brief: string, comments: { __typename?: 'PostCommentConnection', totalDocuments: number }, author: { __typename?: 'User', name: string, profilePicture?: string | null }, coverImage?: { __typename?: 'PostCoverImage', url: string } | null } }>, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage?: boolean | null } } } | null };
+export type MorePostsByPublicationQuery = { __typename?: 'Query', publication?: { __typename?: 'Publication', posts: { __typename?: 'PublicationPostConnection', edges: Array<{ __typename?: 'PostEdge', node: { __typename?: 'Post', id: string, title: string, subtitle: string, url: string, publishedAt: string, slug: string, brief: string, comments: { __typename?: 'PostCommentConnection', totalDocuments: number }, author: { __typename?: 'User', name: string, profilePicture?: string | null }, coverImage?: { __typename?: 'PostCoverImage', url: string } | null } }>, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage?: boolean | null } } } | null };
 
 export type PublicationByHostQueryVariables = Exact<{
   host: Scalars['String']['input'];
@@ -2390,7 +2390,14 @@ export type SearchPostsOfPublicationQueryVariables = Exact<{
 }>;
 
 
-export type SearchPostsOfPublicationQuery = { __typename?: 'Query', searchPostsOfPublication: { __typename?: 'SearchPostConnection', edges: Array<{ __typename?: 'PostEdge', cursor: string, node: { __typename?: 'Post', id: string, brief: string, title: string, cuid?: string | null, slug: string, coverImage?: { __typename?: 'PostCoverImage', url: string } | null, author: { __typename?: 'User', id: string, name: string }, publication?: { __typename?: 'Publication', title: string, url: string } | null } }>, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage?: boolean | null } } };
+export type SearchPostsOfPublicationQuery = { 
+  __typename?: 'Query', 
+  searchPostsOfPublication: { 
+    __typename?: 'SearchPostConnection', 
+    edges: Array<{ __typename?: 'PostEdge', 
+    cursor: string, 
+    node: { __typename?: 'Post', 
+    id: string, brief: string, title: string, subtitle: string, publishedAt: string, cuid?: string | null, slug: string, coverImage?: { __typename?: 'PostCoverImage', url: string } | null, author: { __typename?: 'User', id: string, name: string }, publication?: { __typename?: 'Publication', title: string, url: string } | null } }>, pageInfo: { __typename?: 'PageInfo', endCursor?: string | null, hasNextPage?: boolean | null } } };
 
 export type SeriesPostsByPublicationQueryVariables = Exact<{
   host: Scalars['String']['input'];

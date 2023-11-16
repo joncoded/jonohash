@@ -70,7 +70,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 		return (
 			<SecondaryPost
 				key={post.id}
-				title={post.title}
+				title={post.title}				
 				coverImage={post.coverImage?.url || DEFAULT_COVER}
 				date={post.publishedAt}
 				slug={post.slug}
@@ -127,7 +127,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 
 					<main tabIndex={-1}>
 
-						<h1 className="font-bold text-2xl md:text-5xl">home</h1>
+						<h1 className="font-bold text-3xl md:text-4xl">home</h1>
 
 						{/* no posts yet */}
 						{allPosts.length === 0 && (
@@ -141,7 +141,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 						)}
 
 						{/* posts */}
-						<div className="grid items-start gap-5 lg:grid-cols-2 pt-5 pb-0 sm:py-10">
+						<div className="grid items-start gap-5 lg:grid-cols-2 pt-5 pb-0">
 							<div className="col-span-1">
 								{firstPost && (
 									<HeroPost
