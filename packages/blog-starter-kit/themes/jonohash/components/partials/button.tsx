@@ -1,41 +1,41 @@
-import { forwardRef } from 'react';
+import { forwardRef } from 'react'
 
 type Props = {
-	label: string;
-	type?: string;
-	icon?: React.ReactNode;
-	className?: string;
-	secondaryIcon?: React.ReactNode;
-	href?: string;
-	onClick?: () => void;
-	as?: string;
-	rel?: string;
-	target?: string;
-};
+	label: string
+	type?: string
+	icon?: React.ReactNode
+	className?: string
+	secondaryIcon?: React.ReactNode
+	href?: string
+	onClick?: () => void
+	as?: string
+	rel?: string
+	target?: string
+}
 
 export const Button = forwardRef<HTMLButtonElement, Props>(
 	({ label, type, icon, className, secondaryIcon, href, rel, as, target, onClick }, ref) => {
-		let buttonClassName: string;
+		let buttonClassName: string
 
 		switch (type) {
 			case 'outline':
 				buttonClassName =
-					'text-slate-950 bg-transparent dark:border-neutral-800 hover:bg-slate-50 dark:bg-transparent dark:hover:bg-neutral-800 dark:text-white';
-				break;
+					'text-slate-950 bg-transparent dark:border-neutral-800 hover:bg-slate-50 dark:bg-transparent dark:hover:bg-neutral-800 dark:text-white'
+				break
 
 			case 'primary':
 				buttonClassName =
-					'text-white bg-primary-600 hover:bg-primary-500 border-primary-600 dark:bg-primary-600 dark:text-white';
-				break;
+					'text-white bg-primary-600 hover:bg-primary-500 border-primary-600 dark:bg-primary-600 dark:text-white'
+				break
 
 			case 'outline-dark':
 				buttonClassName =
-					'text-white bg-transparent hover:bg-white hover:text-black dark:bg-neutral-900 dark:text-white';
-				break;
+					'text-white bg-transparent hover:bg-white hover:text-black dark:bg-neutral-900 dark:text-white'
+				break
 
 			default:
 				buttonClassName =
-					'text-white bg-primary-600 hover:bg-primary-500 border-primary-600 dark:bg-primary-600 dark:text-white';
+					'text-white bg-primary-600 hover:bg-primary-500 border-primary-600 dark:bg-primary-600 dark:text-white'
 		}
 
 		if (as === 'a') {
@@ -54,7 +54,7 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
 					</div>
 					{secondaryIcon && <div className="shrink-0">{secondaryIcon}</div>}
 				</a>
-			);
+			)
 		}
 
 		return (
@@ -71,8 +71,8 @@ export const Button = forwardRef<HTMLButtonElement, Props>(
 				</div>
 				{secondaryIcon && <div className="shrink-0">{secondaryIcon}</div>}
 			</button>
-		);
+		)
 	},
-);
+)
 
-Button.displayName = 'Button';
+Button.displayName = 'Button'

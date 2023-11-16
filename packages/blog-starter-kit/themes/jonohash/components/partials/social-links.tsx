@@ -1,10 +1,10 @@
-import Link from 'next/link';
-import { useAppContext } from '../utilities/contexts/appContext';
-import { GithubSVG, HashnodeSVG, LinkedinSVG, RssSVG, XSVG } from '../utilities/icons';
+import Link from 'next/link'
+import { useAppContext } from '../utilities/contexts/appContext'
+import { GithubSVG, HashnodeSVG, LinkedinSVG, RssSVG, XSVG } from '../utilities/icons'
 
 export const SocialLinks = ({ isSidebar }: { isSidebar?: boolean }) => {
-	const { publication } = useAppContext();
-	const hasSocialLinks = !Object.values(publication.links!).every((val) => val === '');
+	const { publication } = useAppContext()
+	const hasSocialLinks = !Object.values(publication.links!).every((val) => val === '')
 
 	return (
 		<>
@@ -74,5 +74,5 @@ export const SocialLinks = ({ isSidebar }: { isSidebar?: boolean }) => {
 				</Link>
 			</div>
 		</>
-	);
-};
+	)
+}

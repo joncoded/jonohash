@@ -1,7 +1,7 @@
-import * as Popover from '@radix-ui/react-popover';
-import { Button } from './button';
-import { NewsletterPlusSVG } from '../utilities/icons';
-import { SubscribeForm } from './subscribe-form';
+import * as Popover from '@radix-ui/react-popover'
+import { Button } from './button'
+import { NewsletterPlusSVG } from '../utilities/icons'
+import { SubscribeForm } from './subscribe-form'
 
 export const Subscribe = () => {
 	return (
@@ -29,5 +29,5 @@ export const Subscribe = () => {
 				</Popover.Portal>
 			</Popover.Root>
 		</div>
-	);
-};
+	)
+}

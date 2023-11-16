@@ -1,57 +1,57 @@
-import { resizeImage } from '@starter-kit/utils/image';
-import request from 'graphql-request';
-import Link from 'next/link';
-import { KeyboardEventHandler, useEffect, useRef, useState } from 'react';
+import { resizeImage } from '@starter-kit/utils/image'
+import request from 'graphql-request'
+import Link from 'next/link'
+import { KeyboardEventHandler, useEffect, useRef, useState } from 'react'
 import {
 	SearchPostsOfPublicationDocument,
 	SearchPostsOfPublicationQuery,
 	SearchPostsOfPublicationQueryVariables,
-} from '../../generated/graphql';
-import { DEFAULT_COVER } from '../../utils/const';
-import { useAppContext } from '../utilities/contexts/appContext';
+} from '../../generated/graphql'
+import { DEFAULT_COVER } from '../../utils/const'
+import { useAppContext } from '../utilities/contexts/appContext'
 
-const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT;
-const NO_OF_SEARCH_RESULTS = 3;
+const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT
+const NO_OF_SEARCH_RESULTS = 3
 
-type Post = SearchPostsOfPublicationQuery['searchPostsOfPublication']['edges'][0]['node'];
+type Post = SearchPostsOfPublicationQuery['searchPostsOfPublication']['edges'][0]['node']
 
 export const Search = () => {
-	const { publication } = useAppContext();
+	const { publication } = useAppContext()
 
-	const searchInputRef = useRef<HTMLInputElement>(null);
-	const timerRef = useRef<NodeJS.Timeout | null>(null);
+	const searchInputRef = useRef<HTMLInputElement>(null)
+	const timerRef = useRef<NodeJS.Timeout | null>(null)
 
-	const [query, setQuery] = useState('');
-	const [searchResults, setSearchResults] = useState<Post[]>([]);
-	const [isSearching, setIsSearching] = useState(false);
+	const [query, setQuery] = useState('')
+	const [searchResults, setSearchResults] = useState<Post[]>([])
+	const [isSearching, setIsSearching] = useState(false)
 
 	const resetInput = () => {
-		if (!searchInputRef.current) return;
-		searchInputRef.current.value = '';
-		setQuery('');
-	};
+		if (!searchInputRef.current) return
+		searchInputRef.current.value = ''
+		setQuery('')
+	}
 
 	const escapeSearchOnESC: KeyboardEventHandler<HTMLInputElement> = (e) => {
 		if (e.key === 'Escape') {
-			resetInput();
+			resetInput()
 		}
-	};
+	}
 
 	const updateSearchQuery = () => {
-		setQuery(searchInputRef.current?.value || '');
-	};
+		setQuery(searchInputRef.current?.value || '')
+	}
 
 	const search = async (query: string) => {
-		if (timerRef.current) clearTimeout(timerRef.current);
+		if (timerRef.current) clearTimeout(timerRef.current)
 
 		if (!query) {
-			setSearchResults([]);
-			setIsSearching(false);
-			return;
+			setSearchResults([])
+			setIsSearching(false)
+			return
 		}
 
 		timerRef.current = setTimeout(async () => {
-			setIsSearching(true);
+			setIsSearching(true)
 
 			const data = await request<
 				SearchPostsOfPublicationQuery,
@@ -59,20 +59,20 @@ export const Search = () => {
 			>(GQL_ENDPOINT, SearchPostsOfPublicationDocument, {
 				first: NO_OF_SEARCH_RESULTS,
 				filter: { query, publicationId: publication.id },
-			});
-			const posts = data.searchPostsOfPublication.edges.map((edge) => edge.node);
-			setSearchResults(posts);
-			setIsSearching(false);
-		}, 500);
-	};
+			})
+			const posts = data.searchPostsOfPublication.edges.map((edge) => edge.node)
+			setSearchResults(posts)
+			setIsSearching(false)
+		}, 500)
+	}
 
 	useEffect(() => {
-		search(query);
-	}, [query]);
+		search(query)
+	}, [query])
 
 	const searchResultsList = searchResults.map((post) => {
 		
-		const postURL = `/${post.slug}`;
+		const postURL = `/${post.slug}`
 		
 		const searchImg = resizeImage(
 			post.coverImage?.url, 
@@ -103,9 +103,9 @@ export const Search = () => {
 				</div>
 				
 			</Link>
-		);
+		)
 
-	});
+	})
 
 	return (
 
@@ -153,5 +153,5 @@ export const Search = () => {
 				</>
 			)}
 		</div>
-	);
-};
+	)
+}

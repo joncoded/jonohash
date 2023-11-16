@@ -1,24 +1,24 @@
-import * as DialogPrimitive from '@radix-ui/react-dialog';
+import * as DialogPrimitive from '@radix-ui/react-dialog'
 import { useTheme } from 'next-themes'
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { PublicationNavbarItem } from '../../generated/graphql';
-import { Button } from '../partials/button';
-import { useAppContext } from '../utilities/contexts/appContext';
-import CloseSVG from '../utilities/icons/svgs/CloseSVG';
-import { PublicationLogo } from '../partials/publication-logo';
-import { SocialLinks } from '../partials/social-links';
+import Link from 'next/link'
+import { useEffect, useState } from 'react'
+import { PublicationNavbarItem } from '../../generated/graphql'
+import { Button } from '../partials/button'
+import { useAppContext } from '../utilities/contexts/appContext'
+import CloseSVG from '../utilities/icons/svgs/CloseSVG'
+import { PublicationLogo } from '../partials/publication-logo'
+import { SocialLinks } from '../partials/social-links'
 
 type Props = {
-	toggleSidebar: () => void;
-	navbarItems: (PublicationNavbarItem & { url: string })[];
-};
+	toggleSidebar: () => void
+	navbarItems: (PublicationNavbarItem & { url: string })[]
+}
 
 function PublicationSidebar(props: Props) {
-	const { toggleSidebar, navbarItems } = props;
-	const [isMounted, setIsMounted] = useState(false);
-	const { publication } = useAppContext();
-	const hasSocialLinks = !Object.values(publication.links!).every((val) => val === '');
+	const { toggleSidebar, navbarItems } = props
+	const [isMounted, setIsMounted] = useState(false)
+	const { publication } = useAppContext()
+	const hasSocialLinks = !Object.values(publication.links!).every((val) => val === '')
 
 	/* dark mode toggle */
   const { theme, setTheme } = useTheme()
@@ -29,8 +29,8 @@ function PublicationSidebar(props: Props) {
   /* dark mode toggle */
 
 	useEffect(() => {
-		setIsMounted(true);
-	}, []);
+		setIsMounted(true)
+	}, [])
 
 	return (
 		<DialogPrimitive.Root open>
@@ -42,10 +42,10 @@ function PublicationSidebar(props: Props) {
 				/>
 				<DialogPrimitive.Content
 					onEscapeKeyDown={() => {
-						toggleSidebar();
+						toggleSidebar()
 					}}
 					onPointerDownOutside={() => {
-						toggleSidebar();
+						toggleSidebar()
 					}}
 					className={`${						
 						!isMounted ? '-translate-x-96' : 'translate-x-0'
@@ -64,7 +64,7 @@ function PublicationSidebar(props: Props) {
 									icon={<CloseSVG className="h-5 w-5 fill-current" />}
 									className="rounded-xl !border-transparent !px-3 !py-2 hover:bg-neutral-800 dark:text-white"
 									onClick={() => {
-										toggleSidebar();
+										toggleSidebar()
 									}}
 								/>
 							</DialogPrimitive.Close>
@@ -109,7 +109,7 @@ function PublicationSidebar(props: Props) {
 				</DialogPrimitive.Content>
 			</DialogPrimitive.Portal>
 		</DialogPrimitive.Root>
-	);
+	)
 }
 
-export default PublicationSidebar;
+export default PublicationSidebar

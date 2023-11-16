@@ -1,18 +1,18 @@
-import { markdownToHtml } from '@starter-kit/utils/renderer/markdownToHtml';
-import { Comment } from '../../generated/graphql';
-import { Avatar } from '../partials/avatar';
-import { Button } from '../partials/button';
-import { useAppContext } from '../utilities/contexts/appContext';
-import { ExternalArrowSVG, HashnodeSVG } from '../utilities/icons';
+import { markdownToHtml } from '@starter-kit/utils/renderer/markdownToHtml'
+import { Comment } from '../../generated/graphql'
+import { Avatar } from '../partials/avatar'
+import { Button } from '../partials/button'
+import { useAppContext } from '../utilities/contexts/appContext'
+import { ExternalArrowSVG, HashnodeSVG } from '../utilities/icons'
 
 export const PostComments = () => {
-	const { post } = useAppContext();
-	if (!post) return null;
-	const discussionUrl = `https://hashnode.com/discussions/post/${post.id}`;
+	const { post } = useAppContext()
+	if (!post) return null
+	const discussionUrl = `https://hashnode.com/discussions/post/${post.id}`
 
 	const commentsList = post.comments.edges.map((edge) => {
-		const comment = edge.node as Comment;
-		const content = markdownToHtml(comment.content.markdown);
+		const comment = edge.node as Comment
+		const content = markdownToHtml(comment.content.markdown)
 
 		return (
 			<div
@@ -34,8 +34,8 @@ export const PostComments = () => {
 					)}
 				</div>
 			</div>
-		);
-	});
+		)
+	})
 
 	return (
 		<div className="mx-auto flex w-full max-w-screen-md flex-col gap-5 px-5">
@@ -55,5 +55,5 @@ export const PostComments = () => {
 				{commentsList}
 			</div>
 		</div>
-	);
-};
+	)
+}

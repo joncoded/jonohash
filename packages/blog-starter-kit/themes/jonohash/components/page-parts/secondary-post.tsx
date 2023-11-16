@@ -1,18 +1,18 @@
-import { resizeImage } from '@starter-kit/utils/image';
-import Link from 'next/link';
-import { DEFAULT_COVER } from '../../utils/const';
-import { DateFormatter } from '../utilities/date-formatter';
+import { resizeImage } from '@starter-kit/utils/image'
+import Link from 'next/link'
+import { DEFAULT_COVER } from '../../utils/const'
+import { DateFormatter } from '../utilities/date-formatter'
 
 type Props = {
-	title: string;
-	coverImage: string;
-	date: string;
-	excerpt: string;
-	slug: string;
-};
+	title: string
+	coverImage: string
+	date: string
+	excerpt: string
+	slug: string
+}
 
 export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
-	const postURL = `/${slug}`;
+	const postURL = `/${slug}`
 
 	const coverImg = resizeImage(
 		coverImage, 
@@ -50,5 +50,5 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 				</p>			
 			</div>
 		</section>
-	);
-};
+	)
+}

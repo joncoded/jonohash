@@ -1,20 +1,20 @@
-import { resizeImage } from '@starter-kit/utils/image';
-import { User } from '../../generated/graphql';
-import { Avatar } from '../partials/avatar';
-import { CoverImage } from '../partials/cover-image';
-import { DateFormatter } from '../utilities/date-formatter';
-import { ReadTimeInMinutes } from './post-read-time-in-minutes';
-import { PostTitle } from './post-title';
+import { resizeImage } from '@starter-kit/utils/image'
+import { User } from '../../generated/graphql'
+import { Avatar } from '../partials/avatar'
+import { CoverImage } from '../partials/cover-image'
+import { DateFormatter } from '../utilities/date-formatter'
+import { ReadTimeInMinutes } from './post-read-time-in-minutes'
+import { PostTitle } from './post-title'
 
-type Author = Pick<User, 'username' | 'name' | 'profilePicture'>;
+type Author = Pick<User, 'username' | 'name' | 'profilePicture'>
 
 type Props = {
-	title: string;
-	coverImage: string | null | undefined;
-	date: string;
-	author: Author;
-	readTimeInMinutes: number;
-};
+	title: string
+	coverImage: string | null | undefined
+	date: string
+	author: Author
+	readTimeInMinutes: number
+}
 
 export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes }: Props) => {
 	return (
@@ -42,5 +42,5 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 				</div>
 			)}
 		</>
-	);
-};
+	)
+}

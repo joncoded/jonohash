@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class ChevronDownSVG extends React.Component {
 	render() {
@@ -12,6 +12,6 @@ export default class ChevronDownSVG extends React.Component {
 					d="m6 10 6 6 6-6"
 				/>
 			</svg>
-		);
+		)
 	}
 }

@@ -1,12 +1,12 @@
-import { resizeImage } from '@starter-kit/utils/image';
-import { DEFAULT_AVATAR } from '../../utils/const';
+import { resizeImage } from '@starter-kit/utils/image'
+import { DEFAULT_AVATAR } from '../../utils/const'
 
 type Props = {
-	username: string;
-	name: string;
-	picture: string | null | undefined;
-	size: number;
-};
+	username: string
+	name: string
+	picture: string | null | undefined
+	size: number
+}
 
 export const Avatar = ({ username, name, picture, size }: Props) => {
 	return (
@@ -33,5 +33,5 @@ export const Avatar = ({ username, name, picture, size }: Props) => {
 				</a>
 			</div>
 		</div>
-	);
-};
+	)
+}

@@ -1,39 +1,39 @@
-import { PostFullFragment } from '../../generated/graphql';
-import { useAppContext } from '../utilities/contexts/appContext';
+import { PostFullFragment } from '../../generated/graphql'
+import { useAppContext } from '../utilities/contexts/appContext'
 
-type TableOfContentsItem = PostFullFragment['features']['tableOfContents']['items'][number];
+type TableOfContentsItem = PostFullFragment['features']['tableOfContents']['items'][number]
 
 const mapTableOfContentItems = (toc: TableOfContentsItem[]) => {
 	try {
 		// `toc` is sometimes an array of arrays or an array of objects. Hashnode is trying to investigate this issue.
 		// Meanwhile, we can use the following code to map the table of content items to handle both cases.
 		return (toc ?? []).map((tocItem) => {
-			const item = Array.isArray(tocItem) ? tocItem[0] : tocItem;
+			const item = Array.isArray(tocItem) ? tocItem[0] : tocItem
 			return {
 				id: item.id,
 				level: item.level,
 				slug: item.slug,
 				title: item.title,
 				parentId: item.parentId ?? null,
-			};
-		});
+			}
+		})
 	} catch (error) {
 		console.error('Error while mapping table of content items', {
 			error,
-		});
-		return [];
+		})
+		return []
 	}
-};
+}
 
 const Toc = ({
 	data,
 	parentId,
 }: {
-	data: TableOfContentsItem[];
-	parentId: TableOfContentsItem['parentId'];
+	data: TableOfContentsItem[]
+	parentId: TableOfContentsItem['parentId']
 }) => {
-	const children = data.filter((item) => item.parentId === parentId);
-	if (children.length === 0) return null;
+	const children = data.filter((item) => item.parentId === parentId)
+	if (children.length === 0) return null
 	return (
 		<ul className="mt-5 flex flex-col gap-5 pl-5 font-medium text-slate-800 dark:text-neutral-200">
 			{children.map((item) => (
@@ -49,13 +49,13 @@ const Toc = ({
 				</li>
 			))}
 		</ul>
-	);
-};
+	)
+}
 
 export const PostTOC = () => {
-	const { post } = useAppContext();
+	const { post } = useAppContext()
 
-	if (!post) return null;
+	if (!post) return null
 
 	return (
 		<div className="w-full px-5">
@@ -64,5 +64,5 @@ export const PostTOC = () => {
 				<Toc parentId={null} data={mapTableOfContentItems(post.features.tableOfContents.items)} />
 			</div>
 		</div>
-	);
-};
+	)
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class HashnodeSVG extends React.Component {
 	render() {
@@ -15,6 +15,6 @@ export default class HashnodeSVG extends React.Component {
 					d="M15.107 12a3.107 3.107 0 1 1-6.214 0 3.107 3.107 0 0 1 6.214 0Z"
 				/>
 			</svg>
-		);
+		)
 	}
 }

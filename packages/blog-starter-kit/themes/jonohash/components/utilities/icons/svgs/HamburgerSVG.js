@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class HamburgerSVG extends React.Component {
 	render() {
@@ -12,6 +12,6 @@ export default class HamburgerSVG extends React.Component {
 					d="M20.989 11.997H3M20.989 18H3M21 6H3"
 				/>
 			</svg>
-		);
+		)
 	}
 }

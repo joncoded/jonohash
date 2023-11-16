@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 export default class ExternalArrowSVG extends React.Component {
 	render() {
@@ -12,6 +12,6 @@ export default class ExternalArrowSVG extends React.Component {
 					d="M21 12v6a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h6m4 0h5m0 0v5m0-5-8 8"
 				/>
 			</svg>
-		);
+		)
 	}
 }

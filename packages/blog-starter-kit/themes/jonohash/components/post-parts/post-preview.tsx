@@ -1,23 +1,23 @@
-import { resizeImage } from '@starter-kit/utils/image';
-import Link from 'next/link';
-import { User } from '../../generated/graphql';
-import { DEFAULT_COVER } from '../../utils/const';
-import { CoverImage } from '../partials/cover-image';
-import { DateFormatter } from '../utilities/date-formatter';
+import { resizeImage } from '@starter-kit/utils/image'
+import Link from 'next/link'
+import { User } from '../../generated/graphql'
+import { DEFAULT_COVER } from '../../utils/const'
+import { CoverImage } from '../partials/cover-image'
+import { DateFormatter } from '../utilities/date-formatter'
 
-type Author = Pick<User, 'name' | 'profilePicture'>;
+type Author = Pick<User, 'name' | 'profilePicture'>
 
 type Props = {
-	title: string;
-	coverImage: string | null | undefined;
-	date: string;
-	excerpt: string;
-	author: Author;
-	slug: string;
-};
+	title: string
+	coverImage: string | null | undefined
+	date: string
+	excerpt: string
+	author: Author
+	slug: string
+}
 
 export const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) => {
-	const postURL = `/${slug}`;
+	const postURL = `/${slug}`
 
 	const coverImg = resizeImage(
 		coverImage, 
@@ -55,5 +55,5 @@ export const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) =
 				</p>			
 			</div>
 		</section>
-	);
-};
+	)
+}

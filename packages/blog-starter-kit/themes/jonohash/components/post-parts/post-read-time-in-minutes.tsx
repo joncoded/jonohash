@@ -1,6 +1,6 @@
-import BookOpenSVG from '../utilities/icons/svgs/BookOpenSVG';
+import BookOpenSVG from '../utilities/icons/svgs/BookOpenSVG'
 
-type Props = { readTimeInMinutes: number };
+type Props = { readTimeInMinutes: number }
 
 export const ReadTimeInMinutes = ({ readTimeInMinutes }: Props) => {
 	return (
@@ -10,5 +10,5 @@ export const ReadTimeInMinutes = ({ readTimeInMinutes }: Props) => {
 				<span>{readTimeInMinutes} min read</span>
 			</p>
 		</>
-	);
-};
+	)
+}

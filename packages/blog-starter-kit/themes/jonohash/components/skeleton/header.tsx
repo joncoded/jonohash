@@ -1,28 +1,28 @@
-import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import { useState } from 'react';
+import * as DropdownMenu from '@radix-ui/react-dropdown-menu'
+import { useState } from 'react'
 import { useTheme } from 'next-themes'
-import { PublicationNavbarItem } from '../../generated/graphql';
-import { Button } from '../partials/button';
-import { Container } from './container';
-import { useAppContext } from '../utilities/contexts/appContext';
-import { PublicationLogo } from '../partials/publication-logo';
-import PublicationSidebar from './sidebar';
-import HamburgerSVG from '../utilities/icons/svgs/HamburgerSVG';
-import { Search } from '../partials/searchbar';
-import Skip from '../partials/skip';
+import { PublicationNavbarItem } from '../../generated/graphql'
+import { Button } from '../partials/button'
+import { Container } from './container'
+import { useAppContext } from '../utilities/contexts/appContext'
+import { PublicationLogo } from '../partials/publication-logo'
+import PublicationSidebar from './sidebar'
+import HamburgerSVG from '../utilities/icons/svgs/HamburgerSVG'
+import { Search } from '../partials/searchbar'
+import Skip from '../partials/skip'
 
 function hasUrl(
 	navbarItem: PublicationNavbarItem,
 ): navbarItem is PublicationNavbarItem & { url: string } {
-	return !!navbarItem.url && navbarItem.url.length > 0;
+	return !!navbarItem.url && navbarItem.url.length > 0
 }
 
 export const Header = () => {
-	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>();
-	const { publication } = useAppContext();
-	const navbarItems = publication.preferences.navbarItems.filter(hasUrl);
-	const visibleItems = navbarItems.slice(0, 2);
-	const hiddenItems = navbarItems.slice(2);
+	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>()
+	const { publication } = useAppContext()
+	const navbarItems = publication.preferences.navbarItems.filter(hasUrl)
+	const visibleItems = navbarItems.slice(0, 2)
+	const hiddenItems = navbarItems.slice(2)
 
 	/* dark mode toggle */
   const { theme, setTheme } = useTheme()
@@ -33,8 +33,8 @@ export const Header = () => {
   /* dark mode toggle */
 
 	const toggleSidebar = () => {
-		setIsSidebarVisible((prevVisibility) => !prevVisibility);
-	};
+		setIsSidebarVisible((prevVisibility) => !prevVisibility)
+	}
 
 	const navList = (
 		<ul className="flex flex-row items-center gap-2 text-white">
@@ -87,7 +87,7 @@ export const Header = () => {
 				</li>
 			)}
 		</ul>
-	);
+	)
 
 	return (
 		<header className="fixed top-0 z-40 w-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-5">
@@ -127,5 +127,5 @@ export const Header = () => {
 				</div>
 			</Container>
 		</header>
-	);
-};
+	)
+}

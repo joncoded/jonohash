@@ -1,10 +1,10 @@
-import { PostFragment } from '../../generated/graphql';
-import { PostPreview } from '../post-parts/post-preview';
+import { PostFragment } from '../../generated/graphql'
+import { PostPreview } from '../post-parts/post-preview'
 
 type Props = {
-	posts: PostFragment[];
-	context: 'home' | 'series' | 'tag';
-};
+	posts: PostFragment[]
+	context: 'home' | 'series' | 'tag'
+}
 
 export const MorePosts = ({ posts }: Props) => {
 	return (
@@ -26,5 +26,5 @@ export const MorePosts = ({ posts }: Props) => {
 				))}
 			</div>
 		</section>
-	);
-};
+	)
+}
