@@ -11,7 +11,7 @@ import { DEFAULT_COVER } from '../../utils/const'
 import { useAppContext } from '../utilities/contexts/appContext'
 
 const GQL_ENDPOINT = process.env.NEXT_PUBLIC_HASHNODE_GQL_ENDPOINT
-const NO_OF_SEARCH_RESULTS = 10
+const NO_OF_SEARCH_RESULTS = 20
 
 type Post = SearchPostsOfPublicationQuery['searchPostsOfPublication']['edges'][0]['node']
 
@@ -77,6 +77,8 @@ export const Search = () => {
 			{ w: 50, h: 50, c: 'thumb', }, 
 			DEFAULT_COVER
 		)
+
+		console.log(post)
 		
 		return (
 			<Link
@@ -124,7 +126,7 @@ export const Search = () => {
 					
 					{/* the search results loading state */}
 					{isSearching && (
-						<div className="top-100 absolute right-0 z-10 mt-1 flex w-full md:w-1/2 flex-col items-stretch overflow-y-scroll rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl">
+						<div className="top-100 absolute max-h-80 right-0 z-10 mt-1 flex w-full md:w-1/2 flex-col items-stretch overflow-y-scroll rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl">
 							<div className="flex animate-pulse flex-col gap-1 p-4">
 								<div className="h-8 w-full rounded-lg bg-slate-100 dark:bg-neutral-800"></div>
 								<div className="h-4 w-full rounded-lg bg-slate-100 dark:bg-neutral-800"></div>
@@ -145,7 +147,7 @@ export const Search = () => {
 
 					{/* the search results we see */}
 					{searchResults.length > 0 && !isSearching && (
-						<div className="top-100 absolute right-5 z-10 mt-1 flex w-3/4 md:w-1/2 flex-col items-stretch rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl overflow-auto">
+						<div className="top-100 absolute max-h-80 right-5 z-10 mt-1 flex w-3/4 md:w-1/2 flex-col items-stretch rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl overflow-auto">
 							<h3 className="px-4 py-2 font-medium text-slate-500 dark:text-neutral-400">
 								{searchResults.length} {(searchResults.length >= 2 || searchResults.length === 0) ? "results" : "result"}
 							</h3>
