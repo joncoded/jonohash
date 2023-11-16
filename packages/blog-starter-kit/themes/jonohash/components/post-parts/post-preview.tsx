@@ -29,7 +29,7 @@ export const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) =
 		<section className="flex flex-row gap-10">
 			<div>
 				<div
-					className={`rounded-full h-[100px] w-[100px] shadow-sm shadow-gray-300 p-5 text-5xl bg-cover bg-center`} 
+					className={`rounded-full h-[100px] w-[100px] shadow-sm dark:shadow-gray-300 p-5 text-5xl bg-cover bg-center`} 
 					aria-label="hidden"
 					style={{
 						backgroundImage: `url(${coverImg})`

@@ -24,7 +24,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 		<section className="flex gap-5">
 			<div>
 				<div
-					className={`h-[100px] w-[200px] md:h-[150px] md:w-[300px] border p-5 text-5xl dark:bg-white bg-no-repeat bg-contain bg-center`} 
+					className={`h-[100px] w-[200px] md:h-[150px] md:w-[300px] border p-5 text-5xl dark:bg-white bg-no-repeat bg-contain bg-center dark:shadow-sm dark:shadow-gray-300`} 
 					aria-label="hidden"
 					style={{
 						backgroundImage: `url(${coverImg})`

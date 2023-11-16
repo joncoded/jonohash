@@ -1,8 +1,7 @@
-import { resizeImage } from '@starter-kit/utils/image'
 import Link from 'next/link'
 import { DEFAULT_COVER } from '../../utils/const'
-import { CoverImage } from '../partials/cover-image'
 import { DateFormatter } from '../utilities/date-formatter'
+import { resizeImage } from '@starter-kit/utils/image'
 
 type Props = {
 	title: string
@@ -13,6 +12,7 @@ type Props = {
 }
 
 export const HeroPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
+
 	const postURL = `/${slug}`
 
 	const coverImg = resizeImage(
@@ -25,7 +25,7 @@ export const HeroPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
 		<section className="grid gap-5">		
 			<Link href={postURL}>
 				<div
-					className={`h-auto min-h-[400px] w-full border p-5 text-5xl bg-transparent dark:bg-white bg-no-repeat bg-contain bg-center`} 
+					className={`h-auto min-h-[400px] w-full border p-5 text-5xl bg-transparent dark:bg-white bg-no-repeat bg-contain bg-center dark:shadow-sm dark:shadow-gray-300`} 
 					aria-label="hidden"
 					style={{
 						backgroundImage: `url(${coverImg})`
