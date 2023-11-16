@@ -39,7 +39,7 @@ export const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) =
 				</div>
 			</div>
 			<div className="flex flex-col gap-2">
-				<h2 className="text-3xl font-semibold leading-tight text-slate-800 dark:text-neutral-50">
+				<h2 className="text-3xl font-bold leading-tight text-slate-800 dark:text-neutral-50">
 					<Link
 						href={postURL}
 						className="hover:text-primary-600 dark:hover:text-primary-500 hover:underline"

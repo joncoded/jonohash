@@ -24,7 +24,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 		<section className="flex gap-5">
 			<div>
 				<div
-					className={`h-[100px] w-[200px] md:h-[150px] md:w-[300px] border p-5 text-5xl dark:bg-white bg-no-repeat bg-contain bg-center dark:shadow-sm dark:shadow-gray-300`} 
+					className={`h-[125px] w-[200px] border p-5 text-5xl dark:bg-white bg-no-repeat bg-contain bg-center dark:shadow-sm dark:shadow-gray-300`} 
 					aria-label="hidden"
 					style={{
 						backgroundImage: `url(${coverImg})`
@@ -34,7 +34,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 				</div>
 			</div>
 			<div className="flex flex-col gap-2">
-				<h2 className="text-3xl font-semibold leading-tight text-slate-800 dark:text-neutral-50">
+				<h2 className="text-3xl font-bold leading-tight text-slate-800 dark:text-neutral-50">
 					<Link
 						href={postURL}
 						className="hover:text-primary-600 dark:hover:text-primary-500 hover:underline"

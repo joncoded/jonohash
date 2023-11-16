@@ -23,9 +23,9 @@ export const HeroPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
 
 	return (		
 		<section className="grid gap-5">		
-			<Link href={postURL}>
+			<Link href={postURL} className="">
 				<div
-					className={`h-auto min-h-[400px] w-full border p-5 text-5xl bg-transparent dark:bg-white bg-no-repeat bg-contain bg-center dark:shadow-sm dark:shadow-gray-300`} 
+					className={`h-auto min-h-[200px] md:min-h-[400px] w-full border p-5 text-5xl bg-transparent dark:bg-white bg-no-repeat bg-contain bg-center dark:shadow-sm dark:shadow-gray-300`} 
 					aria-label="hidden"
 					style={{
 						backgroundImage: `url(${coverImg})`
@@ -33,8 +33,8 @@ export const HeroPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
 				>
 					&nbsp;
 				</div>
-				<div className="mt-2 p-5">
-					<h2 className="text-3xl md:text-5xl font-bold leading-snug text-slate-800 dark:text-neutral-50 lg:text-3xl">{title}</h2>
+				<div className="my-5 p-5">
+					<h2 className="text-3xl md:text-5xl font-bold text-slate-800 dark:text-neutral-50 lg:text-3xl hover:text-primary-600 dark:hover:text-primary-500 hover:underline">{title}</h2>
 					<div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">				
 						<DateFormatter dateString={date} />				
 					</div>

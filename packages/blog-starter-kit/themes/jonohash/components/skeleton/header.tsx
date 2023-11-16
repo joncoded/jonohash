@@ -32,10 +32,13 @@ export const Header = () => {
   }
   /* dark mode toggle */
 
+	/* sidebar toggle */
 	const toggleSidebar = () => {
 		setIsSidebarVisible((prevVisibility) => !prevVisibility)
 	}
+	/* sidebar toggle */
 
+	/* navigtion list */
 	const navList = (
 		<ul className="flex flex-row items-center gap-2 text-white">
 
@@ -88,6 +91,7 @@ export const Header = () => {
 			)}
 		</ul>
 	)
+	/* navigation list */
 
 	return (
 		<header className="fixed top-0 z-40 w-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-5">
