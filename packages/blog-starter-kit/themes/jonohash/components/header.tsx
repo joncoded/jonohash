@@ -4,9 +4,11 @@ import { PublicationNavbarItem } from '../generated/graphql';
 import { Button } from './button';
 import { Container } from './container';
 import { useAppContext } from './contexts/appContext';
-import HamburgerSVG from './icons/svgs/HamburgerSVG';
 import { PublicationLogo } from './publication-logo';
 import PublicationSidebar from './sidebar';
+import HamburgerSVG from './icons/svgs/HamburgerSVG';
+import { Search } from './searchbar';
+import Skip from './skip';
 
 function hasUrl(
 	navbarItem: PublicationNavbarItem,
@@ -15,12 +17,11 @@ function hasUrl(
 }
 
 export const Header = () => {
-	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || '/';
 	const [isSidebarVisible, setIsSidebarVisible] = useState<boolean>();
 	const { publication } = useAppContext();
 	const navbarItems = publication.preferences.navbarItems.filter(hasUrl);
-	const visibleItems = navbarItems.slice(0, 3);
-	const hiddenItems = navbarItems.slice(3);
+	const visibleItems = navbarItems.slice(0, 2);
+	const hiddenItems = navbarItems.slice(2);
 
 	const toggleSidebar = () => {
 		setIsSidebarVisible((prevVisibility) => !prevVisibility);
@@ -28,6 +29,7 @@ export const Header = () => {
 
 	const navList = (
 		<ul className="flex flex-row items-center gap-2 text-white">
+
 			{visibleItems.map((item) => (
 				<li key={item.url}>
 					<a
@@ -43,10 +45,11 @@ export const Header = () => {
 
 			{hiddenItems.length > 0 && (
 				<li>
+
 					<DropdownMenu.Root>
 						<DropdownMenu.Trigger asChild>
 							<button className="transition-200 block rounded-full p-2 transition-colors hover:bg-white hover:text-black dark:hover:bg-neutral-800 dark:hover:text-white">
-								More
+								more
 							</button>
 						</DropdownMenu.Trigger>
 
@@ -71,40 +74,40 @@ export const Header = () => {
 							</DropdownMenu.Content>
 						</DropdownMenu.Portal>
 					</DropdownMenu.Root>
+
 				</li>
 			)}
 		</ul>
 	);
 
 	return (
-		<header className="border-b bg-slate-950 py-10 dark:border-neutral-800 dark:bg-neutral-900">
-			<Container className="grid grid-cols-4 gap-5 px-5">
-				<div className="col-span-2 flex flex-1 flex-row items-center gap-2 lg:col-span-1">
-					<div className="lg:hidden">
+		<header className="fixed top-0 z-40 w-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-5">
+			<Container className="flex justify-between gap-5 px-5">
+				<Skip />
+				<div className="flex items-center gap-5">
+					<div>
+						<PublicationLogo />
+					</div>
+					<div>
 						<Button
 							type="outline"
-							label=""
+							label="menu"
 							icon={<HamburgerSVG className="h-5 w-5 stroke-current" />}
 							className="rounded-xl border-transparent !px-3 !py-2 text-white hover:bg-slate-900 dark:hover:bg-neutral-800"
 							onClick={toggleSidebar}
 						/>
-
 						{isSidebarVisible && (
 							<PublicationSidebar navbarItems={navbarItems} toggleSidebar={toggleSidebar} />
 						)}
 					</div>
-					<div className="hidden lg:block">
-						<PublicationLogo />
+					<div>
+						{navList}
 					</div>
 				</div>
-				<div className="col-span-2 flex flex-row items-center justify-end gap-5 text-slate-300 lg:col-span-3">
-					<nav className="hidden lg:block">{navList}</nav>
-					<Button href={baseUrl} as="a" type="primary" label="Book a demo" />
+				<div>
+					<Search />
 				</div>
 			</Container>
-			<div className="mt-5 flex justify-center lg:hidden">
-				<PublicationLogo />
-			</div>
 		</header>
 	);
 };
