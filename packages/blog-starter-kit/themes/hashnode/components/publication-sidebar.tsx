@@ -1,7 +1,7 @@
 import { useEffect, useState, useRef, MutableRefObject } from 'react';
 import * as DialogPrimitive from '@radix-ui/react-dialog';
 
-import { useAppContext } from './contexts/appContext';
+// import { useAppContext } from './contexts/appContext';
 import PublicationSidebarNavLinks from './publication-sidebar-nav-links';
 import PublicationSocialLinks from './publication-social-links';
 import PublicationLogo from './publication-logo';

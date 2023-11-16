@@ -1,4 +1,5 @@
 import * as DialogPrimitive from '@radix-ui/react-dialog';
+import { useTheme } from 'next-themes'
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { PublicationNavbarItem } from '../generated/graphql';
@@ -18,6 +19,14 @@ function PublicationSidebar(props: Props) {
 	const [isMounted, setIsMounted] = useState(false);
 	const { publication } = useAppContext();
 	const hasSocialLinks = !Object.values(publication.links!).every((val) => val === '');
+
+	/* dark mode toggle */
+  const { theme, setTheme } = useTheme()
+
+  const handleTheme = () => {    
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+  /* dark mode toggle */
 
 	useEffect(() => {
 		setIsMounted(true);
@@ -43,8 +52,8 @@ function PublicationSidebar(props: Props) {
 						!isMounted ? '-translate-x-96' : 'translate-x-0'
 					} fixed bottom-0 left-0 top-0 z-50 flex w-80 transform flex-col bg-white shadow-2xl duration-300 ease-out dark:border-neutral-800 dark:bg-neutral-950`}
 				>
-					<div className="blog-sidebar-header w-full shrink-0 py-6">
-						<div className="flex items-center justify-between pl-8 pr-4">
+					<div className="blog-sidebar-header w-full shrink-0 py-5">
+						<div className="flex items-center justify-between px-5">
 							<div className="!text-xl">
 								<PublicationLogo isSidebar />
 							</div>
@@ -61,9 +70,19 @@ function PublicationSidebar(props: Props) {
 								/>
 							</DialogPrimitive.Close>
 						</div>
+
+						<div className="px-5 pt-5 pb-0">
+							<Button	
+								type="outline"
+								label={theme === 'dark' ? 'switch to lite mode' : 'switch to dark mode'}
+								icon={ theme === 'dark' ? '☀️' : '🌙'}
+								className="rounded-xl border-transparent bg-gray-600 dark:bg-white hover:bg-gray-900 dark:hover:bg-black text-white dark:text-gray-900 dark:hover:text-white"
+								onClick={handleTheme}
+							/>
+						</div>
 					</div>
 
-					<div className="py-10 pl-8 pr-4">
+					<div className="px-5">
 						<h2 className="mb-4 text-sm font-semibold uppercase text-slate-500 dark:text-slate-400">
 							Blog menu
 						</h2>

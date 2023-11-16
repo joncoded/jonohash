@@ -1,5 +1,6 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
 import { useState } from 'react';
+import { useTheme } from 'next-themes'
 import { PublicationNavbarItem } from '../generated/graphql';
 import { Button } from './button';
 import { Container } from './container';
@@ -22,6 +23,14 @@ export const Header = () => {
 	const navbarItems = publication.preferences.navbarItems.filter(hasUrl);
 	const visibleItems = navbarItems.slice(0, 2);
 	const hiddenItems = navbarItems.slice(2);
+
+	/* dark mode toggle */
+  const { theme, setTheme } = useTheme()
+
+  const handleTheme = () => {    
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+  /* dark mode toggle */
 
 	const toggleSidebar = () => {
 		setIsSidebarVisible((prevVisibility) => !prevVisibility);
@@ -82,11 +91,20 @@ export const Header = () => {
 
 	return (
 		<header className="fixed top-0 z-40 w-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-5">
-			<Container className="flex justify-between gap-5 px-5">
-				<Skip />
+			<Skip />
+			<Container className="flex justify-between items-center gap-5 px-5">				
 				<div className="flex items-center gap-5">
 					<div>
 						<PublicationLogo />
+					</div>
+					<div className="hidden md:inline">
+						<Button	
+							type="outline"
+							label={theme === 'dark' ? 'lite mode' : 'dark mode'}
+							icon={ theme === 'dark' ? '☀️' : '🌙'}
+							className="rounded-xl border-transparent !px-3 !py-2 text-white hover:bg-slate-900 dark:hover:bg-neutral-800"
+							onClick={handleTheme}
+						/>
 					</div>
 					<div>
 						<Button
