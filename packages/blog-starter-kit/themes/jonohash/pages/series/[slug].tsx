@@ -35,7 +35,7 @@ export default function Post({ series, publication, posts }: Props) {
 					<title>{title}</title>
 				</Head>
 				<Header />
-				<Container className="flex flex-col items-stretch gap-10 px-5 pb-10">
+				<Container className="flex flex-col items-stretch gap-10 px-5 py-24">
 					<div
 						className={`${
 							series.coverImage ? 'col-span-full' : 'col-span-3'
