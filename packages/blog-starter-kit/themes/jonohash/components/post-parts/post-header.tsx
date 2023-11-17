@@ -33,10 +33,10 @@ export const PostHeader = ({ title, coverImage, date, author, readTimeInMinutes 
 				<ReadTimeInMinutes readTimeInMinutes={readTimeInMinutes} />
 			</div>
 			{coverImage && (
-				<div className="w-full px-5 sm:mx-0">
+				<div className="w-full sm:w-3/4 md:max-w-screen-md lg:max-w-screen-lg px-5 mx-auto">
 					<CoverImage
 						title={title}
-						src={resizeImage(coverImage, { w: 1600, h: 840, c: 'thumb' })}
+						src={resizeImage(coverImage, { w: 1024, h: 768, c: 'thumb' })}
 						priority={true}
 					/>
 				</div>
