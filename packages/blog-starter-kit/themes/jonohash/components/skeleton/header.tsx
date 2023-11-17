@@ -36,7 +36,7 @@ export const Header = () => {
 	/* sidebar toggle */
 
 	return (
-		<header className="fixed sticky top-0 z-40 w-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-3 md:py-5">
+		<header className="fixed sticky top-0 z-40 w-min-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-3 md:py-5">
 			<Skip />
 			<Container className="flex flex-col sm:flex-row justify-between items-center gap-1 md:gap-5 px-5">				
 				<div className="flex items-center gap-5">

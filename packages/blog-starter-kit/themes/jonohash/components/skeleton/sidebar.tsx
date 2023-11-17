@@ -79,6 +79,7 @@ function PublicationSidebar(props: Props) {
 								onClick={handleTheme}
 							/>
 						</div>
+
 					</div>
 
 					<div className="px-5">

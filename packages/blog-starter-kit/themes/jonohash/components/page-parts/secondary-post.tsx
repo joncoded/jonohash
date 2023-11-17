@@ -16,7 +16,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 
 	const coverImg = resizeImage(
 		coverImage, 
-		{ w: 200, h: 125, c: 'thumb', }, 
+		{ w: 400, h: 200, c: 'thumb', }, 
 		DEFAULT_COVER
 	)
 
@@ -24,10 +24,10 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 		<Link href={postURL}>
 			<section>
 
-				<div className="flex gap-5 items-center">
-					<div>
+				<div className="flex flex-col md:flex-row gap-5 items-start">
+					<div className="w-full md:w-[150px] lg:w-[200px]">
 						<div
-							className={`h-[125px] w-[200px] border p-5 text-5xl dark:bg-white bg-no-repeat bg-contain bg-center dark:shadow-sm dark:shadow-gray-300`} 							
+							className={`h-[200px] w-full md:h-[100px] md:w-[150px] lg:w-[200px] border p-5 text-5xl dark:bg-white bg-no-repeat bg-cover bg-center dark:shadow-sm dark:shadow-gray-300`} 							
 							style={{
 								backgroundImage: `url(${coverImg})`
 							}}
@@ -36,7 +36,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 							&nbsp;
 						</div>
 					</div>
-					<div className="flex flex-col gap-2">
+					<div className="flex flex-col gap-2 text-center md:text-left">
 						<h2 className="text-3xl font-bold leading-tight text-slate-800 dark:text-neutral-50 hover:text-primary-600 dark:hover:text-primary-500 hover:underline">						
 							{title}
 						</h2>
@@ -44,7 +44,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 							<DateFormatter dateString={date} />					
 						</div>				
 						<p className="text-md leading-snug text-slate-500 dark:text-neutral-400">
-							{excerpt.length > 100 ? excerpt.substring(0, 100) + '…' : excerpt}
+							{excerpt.length > 150 ? excerpt.substring(0, 150) + '…' : excerpt}
 						</p>			
 					</div>
 				</div>
