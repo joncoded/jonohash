@@ -172,7 +172,7 @@ export default function PostOrPage({ publication, post, page }: Props) {
 			<Layout>
 				<Header />
 				<Container className="">
-					<article className="flex flex-col items-start gap-10 pt-28 md:pt-32">
+					<article className="flex flex-col items-start gap-10 pt-10">
 						{post ? Post(publication, post) : Page(page)}
 					</article>
 				</Container>

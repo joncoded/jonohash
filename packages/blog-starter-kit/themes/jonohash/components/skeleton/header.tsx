@@ -36,9 +36,9 @@ export const Header = () => {
 	/* sidebar toggle */
 
 	return (
-		<header className="fixed top-0 z-40 w-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-5">
+		<header className="fixed sticky top-0 z-40 w-full shadow-xl bg-black bg-gradient-to-t from-black to-gray-700 py-3 md:py-5">
 			<Skip />
-			<Container className="flex justify-between items-center gap-5 px-5">				
+			<Container className="flex flex-col sm:flex-row justify-between items-center gap-1 md:gap-5 px-5">				
 				<div className="flex items-center gap-5">
 					<div>
 						<PublicationLogo />
@@ -57,7 +57,7 @@ export const Header = () => {
 							type="outline"
 							label="menu"
 							icon={<HamburgerSVG className="h-5 w-5 stroke-current" />}
-							className="rounded-xl border-transparent !px-3 !py-2 text-white hover:bg-slate-900 dark:hover:bg-neutral-800"
+							className="rounded-xl border-transparent !px-3 !py-1 text-white hover:bg-slate-900 dark:hover:bg-neutral-800"
 							onClick={toggleSidebar}
 						/>
 						{isSidebarVisible && (
@@ -65,7 +65,7 @@ export const Header = () => {
 						)}
 					</div>
 				</div>
-				<div className="w-min-32">
+				<div>
 					<Search />
 				</div>
 			</Container>

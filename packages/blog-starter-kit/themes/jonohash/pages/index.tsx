@@ -123,7 +123,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 
 				<Header />
 
-				<Container className="flex flex-col items-stretch px-5 py-28 md:py-32">
+				<Container className="flex flex-col items-stretch px-5 pt-10">
 
 					<main tabIndex={-1}>
 
