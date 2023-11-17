@@ -66,7 +66,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 	};
 
 	const firstPost = allPosts[0];
-	const secondaryPosts = allPosts.slice(1, 4).map((post) => {
+	const secondaryPosts = allPosts.slice(1, 5).map((post) => {
 		return (
 			<SecondaryPost
 				key={post.id}
@@ -78,7 +78,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 			/>
 		);
 	});
-	const morePosts = allPosts.slice(4);
+	const morePosts = allPosts.slice(5);
 
 	return (
 		<AppProvider publication={publication}>
