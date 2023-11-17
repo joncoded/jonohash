@@ -2,6 +2,8 @@
 
 this is a fork of hashnode's [starter kit](https://github.com/Hashnode/starter-kit#readme)
 
+the main modifications happen at [this folder level](https://github.com/joncoded/jonohash/tree/main/packages/blog-starter-kit/themes/jonohash)
+
 ## setup simplified
 
 this procedure assumes that: 
