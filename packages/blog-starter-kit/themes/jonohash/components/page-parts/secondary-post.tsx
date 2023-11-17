@@ -16,7 +16,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 
 	const coverImg = resizeImage(
 		coverImage, 
-		{ w: 150, h: 300, c: 'thumb', }, 
+		{ w: 200, h: 125, c: 'thumb', }, 
 		DEFAULT_COVER
 	)
 
