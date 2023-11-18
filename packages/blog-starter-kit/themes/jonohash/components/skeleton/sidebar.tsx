@@ -75,7 +75,7 @@ function PublicationSidebar(props: Props) {
 								type="outline"
 								label={theme === 'dark' ? 'switch to lite mode' : 'switch to dark mode'}
 								icon={ theme === 'dark' ? '☀️' : '🌙'}
-								className="rounded-xl border-transparent bg-gray-500 dark:bg-gray-100 hover:bg-gray-900 dark:hover:bg-black text-white dark:text-gray-950 dark:hover:text-white"
+								className="rounded-xl border-transparent font-light"
 								onClick={handleTheme}
 							/>
 						</div>
@@ -105,7 +105,7 @@ function PublicationSidebar(props: Props) {
 								))}
 							</ul>
 						</section>						
-						<SocialLinks isSidebar />
+						{hasSocialLinks && <SocialLinks isSidebar />}
 					</div>
 				</DialogPrimitive.Content>
 			</DialogPrimitive.Portal>
