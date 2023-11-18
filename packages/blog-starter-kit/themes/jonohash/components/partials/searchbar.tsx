@@ -114,11 +114,13 @@ export const Search = () => {
 			{/* the search bar itself */}
 			<input
 				type="text"
+				name="search"
 				ref={searchInputRef}
 				onKeyUp={escapeSearchOnESC}
 				onChange={updateSearchQuery}
 				placeholder="🔎 search"
 				className="w-full px-6 py-2 dark:bg-zinc-200 text-black"
+				autoComplete='off'
 			/>
 			
 			{query && (
