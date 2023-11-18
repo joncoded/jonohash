@@ -47,8 +47,8 @@ export default function Post({ series, publication, posts }: Props) {
 								src={resizeImage(
 									series.coverImage,
 									{
-										w: 200,
-										h: 100,
+										w: 450,
+										h: 300,
 										c: 'thumb',
 									},
 									DEFAULT_COVER,
