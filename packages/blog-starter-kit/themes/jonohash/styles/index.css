@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@200;300;400;500&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -7,6 +8,11 @@
 html {
     scroll-padding-top: 6rem;
 }
+
+body {
+    font-family: Nunito;
+}
+
 
 @media screen and (max-width: 640px) {
     html {
@@ -25,8 +31,8 @@ code {
     padding: 5px;
 }
 
-body {
-    font-family: Nunito;
+h1, h2, h3, h4, h5, h6, button, .lead {
+    font-family: 'Barlow Condensed'
 }
 
 .hashnode-content-style{

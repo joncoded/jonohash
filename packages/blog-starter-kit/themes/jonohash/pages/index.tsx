@@ -127,7 +127,7 @@ export default function Index({ publication, initialAllPosts, initialPageInfo }:
 
 					<main tabIndex={-1}>
 
-						<p className="font-extrabold text-center text-3xl md:text-5xl mb-2 md:mb-5">{publication.descriptionSEO}</p>
+						<p className="lead text-center text-3xl md:text-5xl mb-2 md:mb-5">{publication.descriptionSEO}</p>
 
 						{/* no posts yet */}
 						{allPosts.length === 0 && (
