@@ -34,8 +34,8 @@ export const HeroPost = ({ title, coverImage, date, excerpt, slug }: Props) => {
 					&nbsp;
 				</div>
 				<div className="px-0 py-5 md:p-5 lg:mb-5 text-center md:text-left">
-					<h2 className="mb-2 text-3xl md:text-5xl font-bold text-slate-800 dark:text-neutral-50 lg:text-3xl hover:text-primary-600 dark:hover:text-primary-500 hover:underline">{title}</h2>
-					<div className="mb-1 text-sm font-semibold text-slate-500 dark:text-neutral-300">				
+					<h2 className="font-bold text-6xl text-primary-600 hover:text-black dark:hover:text-white hover:underline">{title}</h2>
+					<div className="mb-3 text-sm font-semibold text-slate-500 dark:text-neutral-300">				
 						<DateFormatter dateString={date} />				
 					</div>
 					<p className="text-md leading-snug text-slate-500 dark:text-neutral-400">{excerpt}</p>

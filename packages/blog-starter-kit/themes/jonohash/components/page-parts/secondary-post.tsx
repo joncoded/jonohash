@@ -37,7 +37,7 @@ export const SecondaryPost = ({ title, coverImage, date, excerpt, slug }: Props)
 						</div>
 					</div>
 					<div className="flex flex-col gap-2 text-center md:text-left">
-						<h2 className="text-3xl font-bold leading-tight text-slate-800 dark:text-neutral-50 hover:text-primary-600 dark:hover:text-primary-500 hover:underline">						
+						<h2 className="font-bold text-3xl text-primary-600 hover:text-black dark:hover:text-white hover:underline">						
 							{title}
 						</h2>
 						<div className="text-sm font-semibold text-slate-500 dark:text-neutral-300">					

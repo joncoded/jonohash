@@ -41,7 +41,7 @@ export const PostPreview = ({ title, coverImage, date, excerpt, slug }: Props) =
 				<h2 className="text-xl md:text-3xl font-bold leading-tight text-slate-800 dark:text-neutral-50">
 					<Link
 						href={postURL}
-						className="hover:text-primary-600 dark:hover:text-primary-500 hover:underline"
+						className="font-bold text-3xl text-primary-600 hover:text-black dark:hover:text-white hover:underline"
 					>
 						{title}
 					</Link>
