@@ -151,7 +151,8 @@ export const Search = () => {
 					{searchResults.length > 0 && !isSearching && (
 						<div className="top-100 absolute max-h-80 right-5 z-10 mt-1 flex w-3/4 md:w-1/2 flex-col items-stretch rounded-lg border dark:border-2 dark:border-gray-400 bg-white dark:bg-gray-900 p-1 shadow-2xl overflow-auto">
 							<h3 className="px-4 py-2 font-medium text-slate-500 dark:text-neutral-400">
-								{searchResults.length} {(searchResults.length >= 2 || searchResults.length === 0) ? "results" : "result"}
+								{searchResults.length >= 20 ? `${searchResults.length}+` : searchResults.length } 
+								{(searchResults.length >= 2 || searchResults.length === 0) ? " results" : " result"}
 							</h3>
 							<hr className="dark:border-neutral-800" />
 							{searchResultsList}
